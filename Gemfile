@@ -7,3 +7,4 @@ gem "faker"
 gem "pry"
 gem "rake"
 gem "require_all"
+gem 'csv'

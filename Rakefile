@@ -7,16 +7,6 @@ task :environment do
 end
 
 include ActiveRecord::Tasks
-DatabaseTasks.db_dir = 'db'
-DatabaseTasks.migrations_paths = 'db/migrate'
-seed_loader = Class.new do
-  def load_seed
-    load "#{ActiveRecord::Tasks::DatabaseTasks.db_dir}/seeds.rb"
-  end
-end
-DatabaseTasks.seed_loader = seed_loader.new
-load 'active_record/railties/databases.rake'
-
 
 desc 'starts a console'
 task :console do
