@@ -5,6 +5,11 @@ def welcome
   puts "Are you a new user? (Y/N)"
 end
 
+def wrong_login_prompt
+  puts "Username not found: Please try again (cap sensitive)"
+  puts "Would you like to create a new user? (Y/N) or Quit (Q)"
+end
+
 def create_new_user
   puts "Please provide the following information"
   puts "First Name"
@@ -22,4 +27,19 @@ end
 
 def check_for_unique_username(username)
   User.all.find_by(username: username)
+end
+
+def look_for_user
+  puts "Enter your username"
+  username = gets.chomp
+  User.all.find_by({username: username})
+end
+
+def display_menu(user)
+  puts "Welcome #{user.username}"
+  puts "Display Menu (Choose your option)"
+  puts "1 - Add Game"
+  puts "2 - Update Previous Game Stats"
+  puts "3 - Explore Stats"
+  puts "4 - Quit"
 end

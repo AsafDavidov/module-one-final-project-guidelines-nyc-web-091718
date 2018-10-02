@@ -1,10 +1,23 @@
 require_relative '../config/environment'
 
 welcome
-new_user = gets.chomp.downcase
+current_user = nil
 
-if new_user == "y"
-  create_new_user
-else new_user == "n"
-  puts "lots of other stuff"
+
+while current_user == nil
+  new_user = gets.chomp.downcase
+  if new_user == "y"
+    current_user = create_new_user
+  elsif new_user == "n"
+    current_user = look_for_user
+    if current_user == nil
+      wrong_login_prompt
+    end
+  elsif new_user == "q"
+    abort
+  end
 end
+
+
+
+display_menu(current_user)
