@@ -1,10 +1,10 @@
 require_relative '../config/environment'
 
-user1 = User.create({first_name:"Lebron",last_name:"James",number:23,username:"LBJames23"})
-user2 = User.create({first_name:"Steph",last_name:"Curry",number:30,username:"StephCurry30"})
-user3 = User.create({first_name:"James",last_name:"Harden",number:13,username:"JamesHard"})
-user4 = User.create({first_name:"Russell",last_name:"Westbrook",number:0,username:"Cupcakes"})
-user5 = User.create({first_name:"JJ",last_name:"Redick",number:17,username:"DeepBall"})
+user1 = User.create({first_name:"Lebron",last_name:"James",username:"LBJames23"})
+user2 = User.create({first_name:"Steph",last_name:"Curry",username:"StephCurry30"})
+user3 = User.create({first_name:"James",last_name:"Harden",username:"JamesHard"})
+user4 = User.create({first_name:"Russell",last_name:"Westbrook",username:"Cupcakes"})
+user5 = User.create({first_name:"JJ",last_name:"Redick",username:"DeepBall"})
 
 CSV.foreach("csv/lebron_stats.csv") do |row|
   game = Game.create({game_date:row[0],opponent_name:row[1],indoor?:true})
