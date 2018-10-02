@@ -43,3 +43,36 @@ def display_menu(user)
   puts "3 - Explore Stats"
   puts "4 - Quit"
 end
+
+def add_user_game(user)
+  puts "Was your game indoors? (Y/N)"
+  indoors = gets.chomp.downcase
+  if indoors == "y"
+    indoors = true
+  else
+    indoors = false
+  end
+  puts "When was the game played (YYYY-MM-DD)?"
+  date = gets.chomp
+  puts "Who did you play against?"
+  opp = gets.chomp
+  binding.pry
+  game = Game.create({game_date:date,opponent_name:opp,indoor?:indoors})
+  UserGame.create({user_id:user.id,game_id:game.id})
+  stat_prompt(game)
+end
+
+def stat_prompt(game)
+  puts "Game Successfully Entered. Please Enter your Stats"
+  puts "How many points did you score?"
+  input_points = gets.chomp.to_i
+  puts "How many shots did you make?"
+  input_made_shots = gets.chomp.to_i
+  puts "How many shots did you take?"
+  input_total_shots = gets.chomp.to_i
+  puts "How many assists did you have?"
+  input_assists = gets.chomp.to_i
+  puts "How many rebounds did you have?"
+  input_rebounds = gets.chomp.to_i
+  Stat.create({made_shots:input_made_shots,total_shots:input_total_shots,rebounds:input_rebounds,assists:input_assists,points:input_points,game_id: game.id})
+end

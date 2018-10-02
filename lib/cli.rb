@@ -21,3 +21,17 @@ end
 
 
 display_menu(current_user)
+option_choice = gets.chomp.to_i
+
+if option_choice == 4
+  puts "Goodbye!"
+  abort
+elsif option_choice == 1
+  add_user_game(current_user)
+elsif option_choice == 2
+  puts "updates avail stats"
+elsif option_choice == 3
+  puts "start stats"
+else
+  puts "invalid input"
+end
