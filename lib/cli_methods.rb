@@ -93,3 +93,29 @@ def update_user_stats(current_user)
   game = Game.find(input_game_id)
   stat_to_update.update(stat_prompt(game))
 end
+
+def display_stat_menu
+  puts "Welcome to your Stats (Which stat would you like to add_user_game)"
+  puts "1 - Specific Game Stat"
+  puts "2 - Average Stats"
+  puts "3 - Lifetime Stats"
+  puts "4 - Return to Main Menu"
+end
+
+def lifetime_stats(current_user)
+  puts "Here are your lifetime stats"
+  puts "Points: #{current_user.total_points}"
+  puts "Rebounds: #{current_user.total_rebounds}"
+  puts "Assists: #{current_user.total_assists}"
+  puts "Number of Triple Doubles: #{current_user.num_of_triple_doubles}"
+  puts "Field Goal Percentage: #{current_user.total_field_goal_percentage}"
+end
+
+def average_stats(current_user)
+  puts "Here are your average stats"
+  puts "Average Points: #{current_user.avg_points}"
+  puts "Average Rebounds: #{current_user.avg_rebounds}"
+  puts "Average Assists: #{current_user.avg_assists}"
+  puts "Percentage of Triple Doubles: #{current_user.percentage_of_triple_doubles}"
+  puts "Field Goal Percentage: #{current_user.total_field_goal_percentage}"
+end

@@ -32,7 +32,22 @@ while option_choice != 4
   elsif option_choice == 2
     update_user_stats(current_user)
   elsif option_choice == 3
-    puts "start stats"
+    display_option = 7
+    while display_option != 4
+      display_stat_menu
+      display_option = gets.chomp.to_i
+      if display_option == 4
+        puts "Returning to the Menu Main"
+      elsif display_option == 1
+        puts "specifc game stat"
+      elsif display_option == 2
+        average_stats(current_user)
+      elsif display_option == 3
+        lifetime_stats(current_user)
+      else
+        puts "Invalid input"
+      end
+    end
   else
     puts "invalid input"
   end

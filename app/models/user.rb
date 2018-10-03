@@ -15,12 +15,24 @@ class User < ActiveRecord::Base
     total(:points)
   end
 
+  def avg_points
+    return (total_points.to_f / self.games.size.to_f).round(1)
+  end
+
   def total_rebounds
     total(:rebounds)
   end
 
+  def avg_rebounds
+    return (total_rebounds.to_f / self.games.size.to_f).round(1)
+  end
+
   def total_assists
     total(:assists)
+  end
+
+  def avg_assists
+    return (total_assists.to_f / self.games.size.to_f).round(1)
   end
 
   def total_field_goal_percentage
@@ -39,6 +51,8 @@ class User < ActiveRecord::Base
     count
   end
 
-
+  def percentage_of_triple_doubles
+    return ((self.num_of_triple_doubles.to_f / self.games.size.to_f)*100).round(1)
+  end
 
 end #end of User class
