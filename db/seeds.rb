@@ -36,7 +36,7 @@ CSV.foreach("csv/jj_redick.csv") do |row|
   Stat.create({made_shots:row[2],total_shots:row[3],rebounds:row[4],assists:row[5],points:row[6],game_id: game.id})
 end
 
-binding.pry
+#binding.pry
 
 #first upload game
 #create user_game instance related to current player and current game

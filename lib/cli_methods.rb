@@ -59,7 +59,7 @@ def add_user_game(user)
   binding.pry
   game = Game.create({game_date:date,opponent_name:opp,indoor?:indoors})
   UserGame.create({user_id:user.id,game_id:game.id})
-  stat_prompt(game)
+  Stat.create(stat_prompt(game))
 end
 
 def stat_prompt(game)
@@ -74,5 +74,22 @@ def stat_prompt(game)
   input_assists = gets.chomp.to_i
   puts "How many rebounds did you have?"
   input_rebounds = gets.chomp.to_i
-  Stat.create({made_shots:input_made_shots,total_shots:input_total_shots,rebounds:input_rebounds,assists:input_assists,points:input_points,game_id: game.id})
+  {made_shots:input_made_shots,total_shots:input_total_shots,rebounds:input_rebounds,assists:input_assists,points:input_points,game_id: game.id}
+end
+
+def list_games(current_user)
+  puts "Here are your games"
+  #puts "*" * 30
+  current_user.games.each do |game|
+    puts "Game Date:#{game.game_date} Opponent: #{game.opponent_name} GameID: #{game.id}"
+  end
+end
+
+def update_user_stats(current_user)
+  list_games(current_user)
+  puts "Enter GameID for the game you would like to update."
+  input_game_id = gets.chomp.to_i
+  stat_to_update = Stat.find_by(game_id: input_game_id)
+  game = Game.find(input_game_id)
+  stat_to_update.update(stat_prompt(game))
 end
