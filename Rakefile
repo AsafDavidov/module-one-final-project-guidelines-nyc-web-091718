@@ -10,6 +10,11 @@ include ActiveRecord::Tasks
 
 desc 'starts a console'
 task :console do
-  ActiveRecord::Base.logger = nil
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
   Pry.start
+end
+
+desc 'runs app'
+task :attac do
+  ruby "lib/cli.rb"
 end

@@ -21,10 +21,12 @@ end
 
 
 option_choice = 7
-while option_choice != 4
+while option_choice != 5
+  current_user = User.find(current_user.id)
+  #redundant?
   display_menu(current_user)
   option_choice = gets.chomp.to_i
-  if option_choice == 4
+  if option_choice == 5
     puts "Goodbye!"
     abort
   elsif option_choice == 1
@@ -48,6 +50,8 @@ while option_choice != 4
         puts "Invalid input"
       end
     end
+  elsif option_choice == 4
+    delete_game(current_user)
   else
     puts "Invalid input"
   end

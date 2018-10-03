@@ -41,7 +41,8 @@ def display_menu(user)
   puts "1 - Add Game"
   puts "2 - Update Previous Game Stats"
   puts "3 - Explore Stats"
-  puts "4 - Quit"
+  puts "4 - Delete a game"
+  puts "5 - Quit"
 end
 
 def add_user_game(user)
@@ -139,5 +140,18 @@ def check_gameid_belongs_to_user(user,gameid)
     true
   else
     false
+  end
+end
+
+def delete_game(user)
+  list_games(user)
+
+  puts "Enter GameID for the game you would like to delete."
+  input_game_id = gets.chomp.to_i
+  if check_gameid_belongs_to_user(user,input_game_id)
+    Game.destroy(input_game_id)
+    puts "Your game has been destroyed!"
+  else
+    puts "That's not one of your games"
   end
 end
