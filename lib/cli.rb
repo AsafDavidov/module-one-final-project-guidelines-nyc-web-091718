@@ -39,7 +39,7 @@ while option_choice != 4
       if display_option == 4
         puts "Returning to the Menu Main"
       elsif display_option == 1
-        puts "specifc game stat"
+        specifc_game_stats(current_user)
       elsif display_option == 2
         average_stats(current_user)
       elsif display_option == 3
@@ -49,6 +49,6 @@ while option_choice != 4
       end
     end
   else
-    puts "invalid input"
+    puts "Invalid input"
   end
 end

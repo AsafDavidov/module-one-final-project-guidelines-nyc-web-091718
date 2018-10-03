@@ -119,3 +119,25 @@ def average_stats(current_user)
   puts "Percentage of Triple Doubles: #{current_user.percentage_of_triple_doubles}"
   puts "Field Goal Percentage: #{current_user.total_field_goal_percentage}"
 end
+
+def specifc_game_stats(current_user)
+  list_games(current_user)
+  puts "Enter GameID for that game stat-line."
+  input_game_id = gets.chomp.to_i
+
+  if check_gameid_belongs_to_user(current_user,input_game_id)
+    stat = Stat.find_by(game_id: input_game_id)
+    puts "Here is your stat-line"
+    puts "Points: #{stat.points}, Rebounds: #{stat.rebounds}, Assists: #{stat.assists}, Field Goal Percentage: #{stat.field_goal_percent}"
+  else
+    puts "That's not your game!"
+  end
+end
+
+def check_gameid_belongs_to_user(user,gameid)
+  if UserGame.find_by(user_id: user.id, game_id:gameid) != nil
+    true
+  else
+    false
+  end
+end
