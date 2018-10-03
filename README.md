@@ -1,10 +1,12 @@
-# Module One Final Project Guidelines
+# ATTAC STAT TRACKER
 
-Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
+Welcome to the ATTAC Stat Tracker.
 
-For your final project, we'll be building a Command Line database application.
+## Short Description
+ATTAC is a CLI app that provides a user the ability to keep track of their basketball performance. The user is enabled with the ability to CRUD - Create, Read, Update and Delete (their stats).
 
-## Project Requirements
+## Install Instructions
+ATTAC uses the following gems: sinatra-activerecord, sqlite3, faker, pry, rake, require_all, csv. In order to install these gems, just type - "bundle install" in the project folder. 
 
 ### Option One - Data Analytics Project
 

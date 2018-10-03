@@ -10,6 +10,6 @@ include ActiveRecord::Tasks
 
 desc 'starts a console'
 task :console do
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
+  ActiveRecord::Base.logger = nil
   Pry.start
 end
