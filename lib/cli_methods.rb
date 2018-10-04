@@ -79,13 +79,16 @@ def stat_prompt(game)
 end
 
 def list_games(current_user)
-  puts "Here are your games"
-  #puts "*" * 30
-  current_user.games.each do |game|
-    puts "Game Date:#{game.game_date} Opponent: #{game.opponent_name} GameID: #{game.id}"
-  end
-end
 
+    puts "Here are your games"
+  #puts "*" * 30
+    current_user.games.each do |game|
+      puts "Game Date:#{game.game_date} Opponent: #{game.opponent_name} GameID: #{game.id}"
+    end
+end
+def no_games
+  puts "You have no games yet. Please add game"
+end
 def update_user_stats(current_user)
   list_games(current_user)
   puts "Enter GameID for the game you would like to update."

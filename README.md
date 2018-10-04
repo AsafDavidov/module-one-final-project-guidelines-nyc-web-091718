@@ -14,6 +14,9 @@ ATTAC is a CLI app that provides a user with the ability to keep track of their 
 ## Install Instructions
 ATTAC uses the following gems: sinatra-activerecord, sqlite3, faker, pry, rake, require_all, csv. In order to install these gems, just type - "bundle install" in the project folder.
 
+## Run Instructions
+In order to run this CLI app, type 'rake attac' into your terminal within this project folder.
+
 ## License
 This software is available under the following licenses:
  * MIT

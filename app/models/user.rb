@@ -55,4 +55,12 @@ class User < ActiveRecord::Base
     return ((self.num_of_triple_doubles.to_f / self.games.size.to_f)*100).round(1)
   end
 
+  def has_games?
+    if self.games.count == 0
+      false
+    else
+      true
+    end
+  end
+
 end #end of User class
