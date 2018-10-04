@@ -1,10 +1,11 @@
 require_relative '../config/environment'
 
-welcome
+
 current_user = nil
 
 
 while current_user == nil
+  welcome
   new_user = gets.chomp.downcase
   if new_user == "y"
     current_user = create_new_user
@@ -27,6 +28,7 @@ while option_choice != 5
   display_menu(current_user)
   option_choice = gets.chomp.to_i
   if option_choice == 5
+    sleep(0.5)
     puts "Goodbye!"
     abort
   elsif option_choice == 1
@@ -44,6 +46,7 @@ while option_choice != 5
         display_stat_menu
         display_option = gets.chomp.to_i
         if display_option == 4
+          sleep(0.5)
           puts "Returning to the Menu Main"
         elsif display_option == 1
           specifc_game_stats(current_user)
@@ -52,6 +55,7 @@ while option_choice != 5
         elsif display_option == 3
           lifetime_stats(current_user)
         else
+          sleep(0.2)
           puts "Invalid input"
         end
       end
@@ -68,3 +72,7 @@ while option_choice != 5
     puts "Invalid input"
   end
 end
+def end_of_run
+  return nil
+end
+end_of_run

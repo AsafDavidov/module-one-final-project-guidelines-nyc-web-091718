@@ -17,4 +17,12 @@ end
 desc 'runs app'
 task :attac do
   ruby "lib/cli.rb"
+  puts "woohoo"
+end
+
+desc "test"
+namespace :lib do
+  task :cli do
+    puts "woohoo2"
+  end
 end
