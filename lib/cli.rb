@@ -21,8 +21,7 @@ end
 
 option_choice = 7
 while option_choice != 5
-  current_user = User.find(current_user.id)
-  #redundant?
+  current_user = User.find(current_user.id) #redundant but necessary
   display_menu(current_user)
   option_choice = gets.chomp.to_i
   if option_choice == 5

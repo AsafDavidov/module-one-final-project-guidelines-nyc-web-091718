@@ -66,21 +66,12 @@ def display_menu(user)
 end
 
 def add_user_game(user)
-  puts "Was your game indoors? (Y/N)"
-  indoors = gets.chomp.downcase
-  if indoors == "y"
-    indoors = true
-  else
-    indoors = false
-  end
-  sleep(0.2)
   puts "When was the game played (YYYY-MM-DD)?"
   date = gets.chomp
   sleep(0.2)
   puts "Who did you play against?"
   opp = gets.chomp
-  #binding.pry
-  game = Game.new({game_date:date,opponent_name:opp,indoor?:indoors})
+  game = Game.new({game_date:date,opponent_name:opp})
   stats = stat_prompt
   if stats == {}
     sleep(0.2)
@@ -90,12 +81,13 @@ def add_user_game(user)
     UserGame.create({user_id:user.id,game_id:game.id})
     stats[:game_id] = game.id
     Stat.create(stats)
+    puts "Game Successfully Entered."
   end
 end
 
 def stat_prompt
   sleep(0.2)
-  puts "Game Successfully Entered. Please Enter Your Stats"
+  puts "Please Enter Your Stats".underline
   sleep(0.2)
   puts "How many points did you score?"
   input_points = gets.chomp.to_i
