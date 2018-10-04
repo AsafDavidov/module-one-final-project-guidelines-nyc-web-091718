@@ -68,20 +68,25 @@ end
 def add_user_game(user)
   puts "When was the game played (YYYY-MM-DD)?"
   date = gets.chomp
-  sleep(0.2)
-  puts "Who did you play against?"
-  opp = gets.chomp
-  game = Game.new({game_date:date,opponent_name:opp})
-  stats = stat_prompt
-  if stats == {}
+  y, m, d = date.split("-")
+  if Date.valid_date?(y.to_i, m.to_i, d.to_i)
     sleep(0.2)
-    puts "Invalid Stat input"
+    puts "Who did you play against?"
+    opp = gets.chomp
+    game = Game.new({game_date:date,opponent_name:opp})
+    stats = stat_prompt
+    if stats == {}
+      sleep(0.2)
+      puts "Invalid Stat input"
+    else
+      game.save
+      UserGame.create({user_id:user.id,game_id:game.id})
+      stats[:game_id] = game.id
+      Stat.create(stats)
+      puts "Game Successfully Entered."
+    end
   else
-    game.save
-    UserGame.create({user_id:user.id,game_id:game.id})
-    stats[:game_id] = game.id
-    Stat.create(stats)
-    puts "Game Successfully Entered."
+    puts "Invalid date entry!"
   end
 end
 
