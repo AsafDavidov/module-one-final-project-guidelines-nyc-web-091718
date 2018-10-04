@@ -2,7 +2,7 @@ require_relative '../config/environment'
 
 def welcome
   puts "\u{1F3C0}" * 23
-  puts "\u{1F3C0}           Welcome to StatTracker" + "         \u{1F3C0}"
+  puts "\u{1F3C0}       Welcome to ATTAC StatTracker" + "       \u{1F3C0}"
   puts "\u{1F3C0}" * 23
   sleep(0.2)
   puts "Are you a new user? (Y/N)"
@@ -149,7 +149,7 @@ end
 def display_stat_menu
   sleep(0.2)
   basketballs
-  puts "Welcome to your Stats (Which stat would you like to access"
+  puts "Welcome to your Stats (Which stat would you like to access)"
   sleep(0.2)
   puts "1 - Specific Game Stat"
   puts "2 - Average Stats"
