@@ -41,9 +41,7 @@ class User < ActiveRecord::Base
 
   def num_of_triple_doubles
     count = 0
-    #binding.pry
     self.games.each do |game|
-      #binding.pry
       if game.stats[0][:points] >= 10 && game.stats[0][:rebounds] >= 10 && game.stats[0][:assists] >= 10
           count+=1
       end

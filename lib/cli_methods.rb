@@ -26,12 +26,10 @@ def create_new_user
   puts "Username (Must be unique!)"
   new_user_username = gets.chomp
   if check_for_unique_username(new_user_username) != nil
-    #sleep(0.2)
     puts "Username has been taken! Be more unique!"
     puts ""
     sleep(0.2)
     nil
-    # new_user_username = gets.chomp
   else
     User.create({first_name:new_user_first_name, last_name:new_user_last_name, username: new_user_username})
   end
@@ -127,7 +125,6 @@ def list_games(current_user)
   sleep(0.2)
     puts "Here are your games"
     sleep(0.2)
-  #puts "*" * 30
     current_user.games.each do |game|
       puts "Game Date:#{game.game_date} | Opponent: #{game.opponent_name} | GameID: #{game.id}"
     end
@@ -192,12 +189,10 @@ def specifc_game_stats(current_user)
   list_games(current_user)
   puts "Enter GameID for that game stat-line."
   input_game_id = gets.chomp.to_i
-
   if check_gameid_belongs_to_user(current_user,input_game_id)
     stat = Stat.find_by(game_id: input_game_id)
     puts "Here is your stat-line:".underline
     puts "Points: #{stat.points}, Rebounds: #{stat.rebounds}, Assists: #{stat.assists}, Field Goal Percentage: #{stat.field_goal_percent}"
-
   else
     puts "That's not your game!"
   end
@@ -214,7 +209,6 @@ end
 
 def delete_game(user)
   list_games(user)
-
   puts "Enter GameID for the game you would like to delete."
   input_game_id = gets.chomp.to_i
   if check_gameid_belongs_to_user(user,input_game_id)

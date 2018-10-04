@@ -3,7 +3,6 @@ require_relative '../config/environment'
 
 current_user = nil
 
-
 while current_user == nil
   welcome
   new_user = gets.chomp.downcase
@@ -18,7 +17,6 @@ while current_user == nil
     abort
   end
 end
-
 
 
 option_choice = 7
@@ -72,7 +70,3 @@ while option_choice != 5
     puts "Invalid input"
   end
 end
-def end_of_run
-  return nil
-end
-end_of_run
